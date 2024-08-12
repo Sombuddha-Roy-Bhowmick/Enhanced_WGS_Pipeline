@@ -8,10 +8,10 @@ params.workdir = "$PWD"
 
 def raw_normal = "${params.workdir}/${params.input1}"
 def raw_tumor = "${params.workdir}/${params.input2}"
-def ref_hg38 = "/data/002_genomes/WGS_Reference_hg38/GCA_000001405.29_GRCh38.p14_genomic.fa"
-def isaac_hg38 = "/data/002_genomes/WGS_Reference_hg38/IsaacIndex.20240724/sorted-reference.xml"
-def elprep_ref = "/data/002_genomes/WGS_Reference_hg38/GCA_000001405.29_GRCh38.p14_genomic.elfasta"
-def elprep_known_sites = "/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly_38.known_indels.elsites,/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.dbsnp138.elsites"
+def ref_hg38 = "Homo_sapiens_assembly38.fasta"
+def isaac_hg38 = "IsaacIndex.20240801/sorted-reference.xml"
+def elprep_ref = "Homo_sapiens_assembly38.elfasta"
+def elprep_known_sites = "Homo_sapiens_assembly_38.known_indels.elsites,Homo_sapiens_assembly38.dbsnp138.elsites"
 
 // Create channels for normal and tumor samples
 Channel.fromPath("${raw_normal}/*R1_001.fastq.gz").set { normal_r1_files }
