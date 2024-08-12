@@ -4,13 +4,13 @@ workdir=$(pwd)  # storing path of Working directory
 raw_normal="$workdir/$input1"   # Assigning path of normal sample
 raw_tumor="$workdir/$input2"    # Assigning path of tumor sample 
 out="$workdir/Output_hg38_${input1}_Vs_${input2}"       # Assigning path of output folder
-Ref_hg38="/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.fasta" # Reference Genome for hg38
-known_sites_1="/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.dbsnp138.vcf" # Known Sites - 1
-known_sites_2="/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.known_indels.vcf.gz" # Known Sites - 2
+Ref_hg38="Homo_sapiens_assembly38.fasta" # Reference Genome for hg38
+known_sites_1="Homo_sapiens_assembly38.dbsnp138.vcf" # Known Sites - 1
+known_sites_2="Homo_sapiens_assembly38.known_indels.vcf.gz" # Known Sites - 2
 threads="100"
 half_threads="50"
-germline_resource="/data/002_genomes/GATK_cloud_reference/af-only-gnomad.hg38.vcf.gz" # Germline Resource 
-pon="/data/002_genomes/GATK_cloud_reference/1000g_pon.hg38.vcf.gz"
+germline_resource="af-only-gnomad.hg38.vcf.gz" # Germline Resource 
+pon="1000g_pon.hg38.vcf.gz"
 
 cd $input1
 ls *R1* > ../list_${input1}
