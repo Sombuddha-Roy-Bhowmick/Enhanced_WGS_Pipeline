@@ -4,10 +4,10 @@ workdir=$(pwd)	# storing path of Working directory
 raw_normal="$workdir/$input1"	# Assigning path of normal sample
 raw_tumor="$workdir/$input2"	# Assigning path of tumor sample 
 out="$workdir/Output_hg38_${input1}_Vs_${input2}"	# Assigning path of output folder
-Ref_hg38="/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.fasta" # Reference Genome for hg38
-Isaac_hg38="/data/002_genomes/WGS_Reference_hg38/IsaacIndex.20240801/sorted-reference.xml" # Isaac Reference Genome for hg38
-elprep_ref="/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.elfasta" # Elprep Reference
-elprep_known_sites="/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly_38.known_indels.elsites,/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.dbsnp138.elsites" # Known Sites 
+Ref_hg38="Homo_sapiens_assembly38.fasta" # Reference Genome for hg38
+Isaac_hg38="IsaacIndex.20240801/sorted-reference.xml" # Isaac Reference Genome for hg38
+elprep_ref="Homo_sapiens_assembly38.elfasta" # Elprep Reference
+elprep_known_sites="Homo_sapiens_assembly_38.known_indels.elsites,Homo_sapiens_assembly38.dbsnp138.elsites" # Known Sites 
 threads="100"
 half_threads="50"
 
