@@ -26,7 +26,7 @@ process runMutect2 {
     script:
     """
     mkdir -p Mutect2
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xmx5g" Mutect2 -R $Ref_hg38 -I ${tumor_bam} -I ${normal_bam} -normal NORMAL --germline-resource $germline_resource --panel-of-normals $pon -O Mutect2/${chr}.vcf --native-pair-hmm-threads ${params.threads} -L ${chr}
     """
@@ -43,7 +43,7 @@ process runHaplotypeCaller {
     script:
     """
     mkdir -p HaplotypeCaller
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xmx5g" HaplotypeCaller -R $Ref_hg38 -I ${tumor_bam} --dbsnp $dbsnp -O HaplotypeCaller/${chr}.vcf --native-pair-hmm-threads ${params.threads} -L ${chr}
     """
