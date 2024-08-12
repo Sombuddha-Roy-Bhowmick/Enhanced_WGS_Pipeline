@@ -73,9 +73,9 @@ process isaac_align_normal {
     """
     mkdir -p normal_output/Aligned/Projects/default/default
     mv ${read1} ${read2} normal_output/
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
-    /data/007_Softwares/Isaac4/Isaac-build/bin/isaac-align -r ${isaac_hg38} -b normal_output -f fastq --use-bases-mask y150,y150 -m200 -j ${params.threads} --keep-duplicates 1 --mark-duplicates 1 -o normal_output/Aligned/
+    /data/softwares/Isaac4/Isaac-build/bin/isaac-align -r ${isaac_hg38} -b normal_output -f fastq --use-bases-mask y150,y150 -m200 -j ${params.threads} --keep-duplicates 1 --mark-duplicates 1 -o normal_output/Aligned/
     """
 }
 
@@ -91,9 +91,9 @@ process isaac_align_tumor {
     """
     mkdir -p tumor_output/Aligned/Projects/default/default
     mv ${read1} ${read2} tumor_output/
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
-    /data/007_Softwares/Isaac4/Isaac-build/bin/isaac-align -r ${isaac_hg38} -b tumor_output -f fastq --use-bases-mask y150,y150 -m200 -j ${params.threads} --keep-duplicates 1 --mark-duplicates 1 -o tumor_output/Aligned/
+    /data/softwares/Isaac4/Isaac-build/bin/isaac-align -r ${isaac_hg38} -b tumor_output -f fastq --use-bases-mask y150,y150 -m200 -j ${params.threads} --keep-duplicates 1 --mark-duplicates 1 -o tumor_output/Aligned/
     ls -l tumor_output/Aligned/Projects/default/default
     """
 }
@@ -109,7 +109,7 @@ process elprep_normal {
     script:
     """
     mkdir -p elprep_normal_output
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     elprep sfm  ${bam_input}/*bam  elprep_normal_output/normal_filtered.bam  --bqsr elprep_normal_output/output.recal --reference ${elprep_ref} --known-sites ${elprep_known_sites} --nr-of-threads ${params.threads}
     """
@@ -126,7 +126,7 @@ process elprep_tumor {
     script:
     """
     mkdir -p elprep_tumor_output
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     elprep sfm  ${bam_input}/*bam  elprep_tumor_output/tumor_filtered.bam  --bqsr elprep_tumor_output/output.recal --reference ${elprep_ref} --known-sites ${elprep_known_sites} --nr-of-threads ${params.threads}
     """
@@ -143,7 +143,7 @@ process index_normal {
     script:
     """
     mkdir -p elprep_normal_output
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     samtools index -@ ${params.threads} ${bam_file.toString()}
     """
@@ -160,7 +160,7 @@ process index_tumor {
     script:
     """
     mkdir -p elprep_tumor_output
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     samtools index  -@ ${params.threads} ${bam_file.toString()}
     """
