@@ -3,10 +3,10 @@
 
 // Define parameters with default values
 params.threads = params.threads ?: 'default_value'
-def Ref_hg38 = "/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.fasta"
-def germline_resource = "/data/002_genomes/GATK_cloud_reference/af-only-gnomad.hg38.vcf.gz"
-def pon = "/data/002_genomes/GATK_cloud_reference/1000g_pon.hg38.vcf.gz"
-def dbsnp = "/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.dbsnp138.vcf"
+def Ref_hg38 = "Homo_sapiens_assembly38.fasta"
+def germline_resource = "af-only-gnomad.hg38.vcf.gz"
+def pon = "1000g_pon.hg38.vcf.gz"
+def dbsnp = "Homo_sapiens_assembly38.dbsnp138.vcf"
 params.workdir = "$PWD"
 
 // Channels for normal and tumor BAM files
