@@ -2,7 +2,7 @@
 
 // Define parameters with default values
 params.threads = params.threads ?: 'default_value'
-def ref_hg38 = "/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.fasta"
+def ref_hg38 = "Homo_sapiens_assembly38.fasta"
 params.workdir = "$PWD"
 
 // Channels for normal and tumor BAM files
