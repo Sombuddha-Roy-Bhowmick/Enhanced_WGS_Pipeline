@@ -21,9 +21,9 @@ process config_manta {
     script:
     """
     mkdir -p MantaWorkflow
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
-    conda activate py27
-    python2.7 /data/007_Softwares/manta-1.6.0.centos6_x86_64/bin/configManta.py --normalBam ${normal_bam} --tumourBam ${tumor_bam} --referenceFasta ${ref_hg38} --runDir MantaWorkflow
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
+    conda activate py2
+    python2.7 /data/softwares/manta-1.6.0.centos6_x86_64/bin/configManta.py --normalBam ${normal_bam} --tumourBam ${tumor_bam} --referenceFasta ${ref_hg38} --runDir MantaWorkflow
     """
 }
 
@@ -37,8 +37,8 @@ process run_manta {
 
     script:
     """
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
-    conda activate py27
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
+    conda activate py2
     python2.7  MantaWorkflow/runWorkflow.py -m local -j ${params.threads}
     """
 }
@@ -55,9 +55,9 @@ process config_strelka {
 
     script:
     """
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
-    conda activate py27
-    python2.7 /data/007_Softwares/strelka-2.9.10.centos6_x86_64/bin/configureStrelkaSomaticWorkflow.py --normalBam ${normal_bam} --tumourBam ${tumor_bam} --referenceFasta ${ref_hg38} --indelCandidates ${manta_out}/candidateSmallIndels.vcf.gz  --runDir StrelkaSomaticWorkflow
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
+    conda activate py2
+    python2.7 /data/softwares/strelka-2.9.10.centos6_x86_64/bin/configureStrelkaSomaticWorkflow.py --normalBam ${normal_bam} --tumourBam ${tumor_bam} --referenceFasta ${ref_hg38} --indelCandidates ${manta_out}/candidateSmallIndels.vcf.gz  --runDir StrelkaSomaticWorkflow
     """
 }
 
@@ -71,8 +71,8 @@ process run_strelka {
 
     script:
     """
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
-    conda activate py27
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
+    conda activate py2
     python2.7  StrelkaSomaticWorkflow/runWorkflow.py -m local -j ${params.threads}
     """
 }
@@ -89,8 +89,8 @@ process config_strelka_germline {
     """
     mkdir -p StrelkaGermlineWorkflow
     source /home/tyrone/anaconda3/etc/profile.d/conda.sh
-    conda activate py27
-    python2.7 /data/007_Softwares/strelka-2.9.10.centos6_x86_64/bin/configureStrelkaGermlineWorkflow.py --bam ${normal_bam} --referenceFasta ${ref_hg38} --runDir StrelkaGermlineWorkflow
+    conda activate py2
+    python2.7 /data/softwares/strelka-2.9.10.centos6_x86_64/bin/configureStrelkaGermlineWorkflow.py --bam ${normal_bam} --referenceFasta ${ref_hg38} --runDir StrelkaGermlineWorkflow
     """
 }
 
@@ -104,8 +104,8 @@ process run_strelka_germline {
 
     script:
     """
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
-    conda activate py27
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
+    conda activate py2
     python2.7  StrelkaGermlineWorkflow/runWorkflow.py -m local -j ${params.threads}
     """
 }
