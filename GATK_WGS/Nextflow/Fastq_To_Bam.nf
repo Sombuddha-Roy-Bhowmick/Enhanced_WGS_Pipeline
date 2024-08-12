@@ -74,7 +74,7 @@ process bwa_mem_normal {
     script:
     """
     mkdir -p Normal_Alignment
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     bwa mem -t ${params.threads} -M -R "@RG\\tID:NORMAL\\tPL:ILLUMINA\\tLB:TruSeq\\tSM:NORMAL\\tPI:200" $Ref_hg38 ${trimmed_r1} ${trimmed_r2} | samtools sort -@ ${params.threads} -o Normal_Alignment/normal_sorted.bam
     """
@@ -91,7 +91,7 @@ process bwa_mem_tumor {
     script:
     """
     mkdir -p Tumor_Alignment
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     bwa mem -t ${params.threads} -M -R "@RG\\tID:TUMOR\\tPL:ILLUMINA\\tLB:TruSeq\\tSM:TUMOR\\tPI:200" $Ref_hg38 ${trimmed_r1} ${trimmed_r2} | samtools sort -@ ${params.threads} -o Tumor_Alignment/tumor_sorted.bam
     """
@@ -108,7 +108,7 @@ process markduplicates_normal {
     script:
     """
     mkdir -p Normal_Markduplicate
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xms100g" MarkDuplicates -I ${sorted_bam} -O Normal_Markduplicate/Normal_dedup.bam -M Normal_Markduplicate/normal_metrics.txt --OPTICAL_DUPLICATE_PIXEL_DISTANCE 2500 -R $Ref_hg38
     """
@@ -125,7 +125,7 @@ process markduplicates_tumor {
     script:
     """
     mkdir -p Tumor_Markduplicate
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xms100g" MarkDuplicates -I ${sorted_bam} -O Tumor_Markduplicate/Tumor_dedup.bam -M Tumor_Markduplicate/tumor_metrics.txt --OPTICAL_DUPLICATE_PIXEL_DISTANCE 2500 -R $Ref_hg38
     """
@@ -142,7 +142,7 @@ process baserecalibrator_normal {
     script:
     """
     mkdir -p Normal_BQSR
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xmx100g" BaseRecalibrator --input ${dedup_bam} --reference $Ref_hg38 --known-sites $known_sites_1 --known-sites $known_sites_2 --output Normal_BQSR/normal_recal.table
     """
@@ -159,7 +159,7 @@ process baserecalibrator_tumor {
     script:
     """
     mkdir -p Tumor_BQSR
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xmx100g" BaseRecalibrator --input ${dedup_bam} --reference $Ref_hg38 --known-sites $known_sites_1 --known-sites $known_sites_2 --output Tumor_BQSR/tumor_recal.table
     """
@@ -176,7 +176,7 @@ process applybqsr_normal {
     script:
     """
     mkdir -p BQSR_Normal
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xmx100g" ApplyBQSR -R $Ref_hg38 -I ${dedup_bam} -bqsr ${recal_table} -O BQSR_Normal/normal_bqsr.bam
     """
@@ -193,7 +193,7 @@ process applybqsr_tumor {
     script:
     """
     mkdir -p BQSR_Tumor
-    source /home/tyrone/anaconda3/etc/profile.d/conda.sh
+    source /home/sombuddha/anaconda3/etc/profile.d/conda.sh
     conda activate wgs
     gatk --java-options "-Xmx100g" ApplyBQSR -R $Ref_hg38 -I ${dedup_bam} -bqsr ${recal_table} -O BQSR_Tumor/tumor_bqsr.bam
     """
