@@ -8,9 +8,9 @@ params.workdir = "$PWD"
 
 def raw_normal = "${params.workdir}/${params.input1}"
 def raw_tumor = "${params.workdir}/${params.input2}"
-def Ref_hg38 = "/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.fasta"
-def known_sites_1 = "/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.dbsnp138.vcf"
-def known_sites_2 = "/data/002_genomes/WGS_Reference_hg38/Homo_sapiens_assembly38.known_indels.vcf.gz"
+def Ref_hg38 = "Homo_sapiens_assembly38.fasta"
+def known_sites_1 = "Homo_sapiens_assembly38.dbsnp138.vcf"
+def known_sites_2 = "Homo_sapiens_assembly38.known_indels.vcf.gz"
 
 
 
