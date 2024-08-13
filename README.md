@@ -8,9 +8,9 @@ The Enhanced Non-GATK pipeline uses various open source tools:
 3. **elPrep** (https://github.com/ExaScience/elprep) - Base Quality Score Recalibration & InDel Realignment
 4. **Strelka2** (https://github.com/Illumina/strelka) - Somatic & Germline Variant Caller
 
-The GATK pipeline uses:
+The GATK pipeline uses various open source tools:
 1. **fastp** (https://github.com/OpenGene/fastp) - QC, Adapter Removal & Trimming
-2. **GATK** (https://github.com/broadinstitute/gatk)
+2. **GATK** (https://github.com/broadinstitute/gatk) - Mapping/Alignment, Marking Duplicate Reads, Base Quality Score Recalibration and InDel Realignment, Somatic (Mutect2) & Germline (HaplotypeCaller) Variant Caller
 
 Both the pipelines are avilable in this repository as **Shell** scripts as well as **Nextflow** scripts.
 
