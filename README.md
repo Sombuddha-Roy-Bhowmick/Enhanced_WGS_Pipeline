@@ -1,4 +1,4 @@
-# Enhanced_WGS_Pipeline
+# Enhanced WGS Pipeline
 
 **The Enhanced Whole Genome Sequencing Pipeline is ~4x faster than the standard GATK WGS pipeline.**
 
