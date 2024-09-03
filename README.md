@@ -14,7 +14,7 @@ The GATK pipeline uses various open source tools:
 
 Both the pipelines are avilable in this repository as **Shell** scripts as well as **Nextflow** scripts.
 
-**For a 80x-70x Tumor-MatchNormal sample, the Enhanced pipleine completed the analysis in 6 hours 26 minutes, whereas the GATK pipeline took 25 hours 32 minutes for the same pair of samples.**
+**For a 80x-70x Tumor-MatchNormal sample, the Enhanced pipeline completed the analysis in 6 hours 26 minutes, whereas the GATK pipeline took 25 hours 32 minutes for the same pair of samples.**
 
 The output of the two pipelines were found to be concordant. The pipelines were tested on the cell line data - HCC1395 (available from NCBI-SRA) and both the pipelines could capture the same number of true somatic mutations (information obtained from COSMIC) at different depths.
 
